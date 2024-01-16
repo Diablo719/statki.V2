@@ -24,7 +24,7 @@ import java.util.Set;
 
 public class FucionBot {
 
-    private static Set<String> usedValues = new HashSet<>();
+    private static  Set<String> usedValues = new HashSet<>();
 
     public static String logicBot(String[][] board) {
         Random random = new Random();
@@ -42,5 +42,25 @@ public class FucionBot {
 
 
         return randomPlaceOnBoard ;
+
     }
+    private static  Set<String>  usedValues2 = new HashSet<>();
+    public static String shipBot(String[][] board) {
+        Random random = new Random();
+        int numRows = board.length;
+        int numColumns = board[0].length;
+        int numRow;
+        int numColumn;
+        String randomPlaceOnBoard;
+        do {
+            numRow = random.nextInt(numRows);
+            numColumn = random.nextInt(numColumns);
+            randomPlaceOnBoard = board[numRow][numColumn];
+        } while (usedValues2.contains(randomPlaceOnBoard));
+        usedValues2.add(randomPlaceOnBoard);
+
+
+        return randomPlaceOnBoard;
+    }
+
 }
